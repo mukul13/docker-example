@@ -1,0 +1,38 @@
+# docker-compose.yml
+version: "3.3"
+services:
+  postgres:
+    image: postgres
+    hostname: postgres
+    environment:
+      POSTGRES_DB: mukulchaware
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+
+  server1:
+    build: ./server1
+    hostname: server1
+    env_file: ./server1/.env
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    ports:
+      - "4000:4000"
+    environment:
+      WAIT_HOSTS: postgres:5432
+
+  server2:
+    build: ./server2
+    hostname: server2
+    env_file: ./server2/.env
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    ports:
+      - "5000:5000"
+    environment:
+      WAIT_HOSTS: postgres:5432
