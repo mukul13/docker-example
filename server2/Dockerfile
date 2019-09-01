@@ -1,5 +1,5 @@
 FROM node:12.4.0
-EXPOSE 5000
+EXPOSE 3001
 
 WORKDIR /home/server2
 
@@ -16,4 +16,4 @@ ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.2.1/wait
 RUN chmod +x /wait
 
 ## Launch the wait tool and then your application
-CMD /wait && PORT=5000 yarn start
+CMD /wait && PORT=3001 yarn start

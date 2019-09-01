@@ -5,7 +5,7 @@ services:
     image: postgres
     hostname: postgres
     environment:
-      POSTGRES_DB: mukulchaware
+      POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
@@ -33,6 +33,6 @@ services:
     links:
       - postgres
     ports:
-      - "5000:5000"
+      - "3001:3001"
     environment:
       WAIT_HOSTS: postgres:5432
