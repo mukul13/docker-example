@@ -16,4 +16,4 @@ ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.2.1/wait
 RUN chmod +x /wait
 
 ## Launch the wait tool and then your application
-CMD /wait && PORT=4000 yarn start
+CMD /wait && npm install && npm run start
